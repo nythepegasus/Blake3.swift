@@ -9,26 +9,8 @@ let package = Package(
         .library(name: "Blake3", targets: ["Blake3"]),
     ],
     targets: [
-        .target(
-            name: "Blake3C",
-            cSettings: [
-                .headerSearchPath("./dependencies/BLAKE3/include")
-            ]
-        ),
-        .target(
-            name: "Blake3",
-            dependencies: ["Blake3C"],
-            swiftSettings: [
-                .enableUpcomingFeature("ApproachableConcurrency"),
-            ],
-        ),
-        .testTarget(
-            name: "Blake3Tests",
-            dependencies: ["Blake3"],
-            resources: [.copy("vectors.json")],
-            swiftSettings: [
-                .enableUpcomingFeature("ApproachableConcurrency"),
-            ],
-        ),
+        .target(name: "Blake3C", cSettings: [.headerSearchPath("./dependencies/BLAKE3/include")]),
+        .target( name: "Blake3", dependencies: ["Blake3C"]),
+        .testTarget(name: "Blake3Tests", dependencies: ["Blake3"], resources: [.copy("vectors.json")]),
     ]
 )

@@ -134,6 +134,7 @@ public struct Blake3: Copyable, Sendable {
         context.finalize()
     }
 
+    @_transparent
     public static func digest(_ data: any DataProtocol) -> Blake3Digest {
         var h = Self()
         h.update(data)
