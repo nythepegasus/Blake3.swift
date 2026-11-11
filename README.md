@@ -46,7 +46,7 @@ targets: [
     .target(
         // ...
         dependencies: [
-            .product(name: "Blake3", package: "Blake3")
+            .product(name: "Blake3", package: "Blake3.swift")
         ]
     )
 ]
